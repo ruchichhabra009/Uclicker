@@ -1,0 +1,33 @@
+<!--page form.html in the nodeform folder in the current directory-->
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+</head>
+ 
+<body>
+<script type="text/javascript">var counter = 1;
+var limit = 20;
+function addInput(divName){
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "Choice " + (counter + 1) + " <br><input type='text' name='myInputs'>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}</script>
+<form action="./pollCreateAction" method="post" target="_blank">
+	Question: <input type="text" name="q"><br>
+     <div id="dynamicInput">
+          Choice 1<br><input type="text" name="myInputs">
+     </div>
+     <input type="button" value="Add another choice" onClick="addInput('dynamicInput');">
+      <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

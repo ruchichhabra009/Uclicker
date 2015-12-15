@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include ../partials/backend/head.ejs %>
+ <script src="/socket.io/socket.io.js"></script>
+</head>
+<script>
+  var socket = io();
+  var scc=0;
+  var t= <%- JSON.stringify(choices.glink) %>;
+  var buttons=document.getElementsByClassName("btn btn-default btn-lg btn-block");
+  //Socket io function for timer
+  socket.on(<%- JSON.stringify(selquestion) %>, function(msg){
+    scc = Math.round(msg);
+    
+    document.getElementById('timer').innerHTML="Time Remaining: "+scc;
+    document.getElementById('viewresults').innerHTML="";
+
+    for(var i=0; i<buttons.length; i++) {
+      buttons[i].disabled=false;
+    }
+
+  });
+  //Socket io function fo timer end
+  socket.on('timerdone', function(i){
+    console.log("doneeee");
+    
+
+    location.reload();
+
+  });
+
+  //Function for displaying voting is closed and view result button
+  window.onload = function() {
+    setTimeout(function() {
+      if(scc===0){
+        document.getElementById('viewresults').innerHTML="<h3>Voting has been closed.</h3><br> <button type='button'   class='btn btn-primary' onClick='viewResults()'> View Results</button>";
+
+      }
+      
+    } , 1000);
+  }
+  
+  //Show graph in the empty div after voting ends
+  function viewResults(){
+   
+    document.getElementById('graph').innerHTML='<iframe height="480" style="overflow: hidden;  width: 100%; " width="100%" frameborder="0" seamless="seamless" scrolling="no" src="'+t+'"></iframe>';
+
+    
+  }
+  
+</script>
+
+
+<body>
+
+  <section id="container" >
+   <!-- include backend partials for sidear and top bar-->
+   <% include ../partials/backend/header.ejs %>
+   <% include ../partials/backend/sidebar.ejs %>
+   <!-- main content start -->
+   <section id="main-content">
+   <!-- Wrapper start -->
+    <section class="wrapper site-min-height">
+     <div class="row mt mb">
+      <div class="col-md-12">
+        <section class="task-panel tasks-widget">
+          <div class="panel-heading">
+            <!-- Show the current question-->
+            <div class="pull-left"><h3><i class="fa fa-tasks"></i> <%=selquestion%></h3></div>
+            <!-- Show the timer-->
+            <div class="pull-right"><h3 id="timer"> </h3></div>
+            <br>
+          </div>
+          <br>
+          <div class="panel-body">
+           <div class="task-content">
+           <!-- Show the list of options-->
+            <ul id="sortable" class="task-list">
+             <form class="form-horizontal style-form" form action="./voteAction" method="post">
+               <input type="hidden" name="q" value= "<%=selquestion%>">
+               <% for(var i=0; i<choices.choices.length; i++) { %>
+               <li class="list-primary">
+                 
+                
+                <div class="task-title">
+                  
+                  <button type="submit" name="selected_vote" value="<%=choices.choices[i].ctext %>" class="btn btn-default btn-lg btn-block" id="mybtn" disabled> <%=choices.choices[i].ctext %></button>
+                  <br>
+                  
+                  
+                  
+                </div>
+              </li>
+
+
+              <%}%>
+
+
+              
+              <div class="pull-left" id="viewresults"></div>
+
+              
+              
+
+            </form>
+            
+            
+
+          </ul>
+
+        </div>
+        <!-- Blank div for graph after the voting ends -->
+        <div id="graph"></div>
+
+      </div>
+    </section>
+  </div>
+</div>
+</section>
+</section><!-- main content end-->
+
+<!-- Include footer partial for backend-->
+<% include ../partials/backend/footer.ejs %>
+</section>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+<!--common script for all pages-->
+<script src="assets/js/common-scripts.js"></script>
+
+<!--script for this page-->
+
+
+
+</body>
+</html>

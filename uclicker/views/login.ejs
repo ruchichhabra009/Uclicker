@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<!-- include header partial-->
+	<% include ./partials/frontend/head.ejs %>
+</head>
+
+<body class="loginbody">
+	<div id="wrap">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- include logo partial-->
+				<% include ./partials/frontend/logo.ejs %>   
+				<!-- Nav bar -->  
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="passive">
+							<a href="/">Home</a>
+						</li>
+						<li class="passive">
+							<a href="#about">About</a>
+						</li>
+						<li class="passive">
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Nav bar end-->
+			</div>
+		</div>
+		<!--Login form-->
+		<div class="panel-body">
+			<div class="task-content">
+				<form class="form-horizontal" form action="/login" method="post">
+					<fieldset>
+						<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-5 col-md-pull-2 col-lg-4 col-lg-offset-6 col-lg-pull-2">
+							<legend>Sign In</legend>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
+								<input type="text" class="form-control" name="email" id="inputEmail" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
+								<input type="password" class="form-control" name="password" placeholder="Password" id="inputPassword">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
+								<button class="btn btn-block btn-primary" type="submit">Sign In</button>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
+								<p>Don't have an account? <a href="/signup">Sign Up</a></p>
+								<p>Or go <a href="/">home</a>.</p>
+							</div>
+
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<!-- Login form end-->
+	</div>
+	<!-- page wrapper end -->
+
+
+</body>
+
+</html>

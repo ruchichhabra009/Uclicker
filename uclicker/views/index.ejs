@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html>
+
+<head>
+ <!-- include header partial-->
+ <% include ./partials/frontend/head.ejs %>
+ <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+  <!-- page wrapper start -->
+  <div id="wrap">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- include logo partial-->
+        <% include ./partials/frontend/logo.ejs %>   
+        <!-- Nav bar -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="passive">
+              <a>Home</a>
+            </li>
+            <li class="passive">
+              <a href="#about">About</a>
+            </li>
+            <li class="passive">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+          <!-- mini login form on top right-->
+          <form class=" navbar-form navbar-right" form action="/login" method="post" >
+            <div class="form-group">
+              <input type="text" placeholder="Email" name="email" class="form-control input-sm">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" name="password" class="form-control input-sm">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </form>
+          <!-- mini login form on top right end-->
+        </div>
+        <!-- Nav bar end-->
+      </div>
+    </div>
+    <!-- Main content -->
+    <div id="main">
+      <div class="jumbotron">
+        <div class="container">
+          <h1>UClicker</h1>
+          <p style>Learning Today . . . Leading Tomorrow!</p>
+          <p style><a class="btn btn-primary" href="/signup">Sign Up &raquo;</a>
+            <a class="btn btn-primary" href="/login">Sign In &raquo;</a></p>
+          </div>
+        </div>
+        
+      </div>
+    <!-- Main content end -->
+    </div> 
+    <!-- page wrapper end -->
+    
+  </body>
+  
+  </html>

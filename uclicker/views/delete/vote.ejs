@@ -1,0 +1,22 @@
+<!--page form.html in the nodeform folder in the current directory-->
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+ 
+<body>
+<%=qlist[0].question%>
+<form action="./voteAction" method="post" target="_blank">
+<input type="hidden" name="q" value=<%=qlist[0].question%>>
+<% for(var i=0; i<qlist[0].choices.length; i++) { %>
+  <input type="radio" name="selected_vote" value=<%=qlist[0].choices[i].ctext %> checked><%=qlist[0].choices[i].ctext %>
+  <% } %>
+<input type="submit" value="Submit">
+</form>
+
+
+
+  
+</body>
+</html>

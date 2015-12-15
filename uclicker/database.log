@@ -1,0 +1,8 @@
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO Loading database
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO Model loaded
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO findNodes { group: 'html' }
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO findNodes { group: { inq: [ 'js', 'js-markup' ] } }
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO findNodesById {}
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO findNodesById {}
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO findNodesById {}
+[Tue Oct 27 2015 20:26:25 GMT-0500 (Central Daylight Time)] INFO findLinks {}

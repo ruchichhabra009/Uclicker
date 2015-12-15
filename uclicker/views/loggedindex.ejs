@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- This index is for logged in users-->
+<html>
+
+<head>
+ <!-- include header partial-->
+ <% include ./partials/frontend/head.ejs %>
+</head>
+
+<body>
+  <div id="wrap">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- include logo partial-->
+        <% include ./partials/frontend/logo.ejs %>   
+        <!-- Nav bar -->   
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="passive">
+              <a>Home</a>
+            </li>
+            <li class="passive">
+              <a href="/profile">Dashboard</a>
+            </li>
+            <li class="passive">
+              <a href="#about">About</a>
+            </li>
+            <li class="passive">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right" form action="/logout"  >
+            
+            <button type="submit" class="btn btn-primary">Log Out</button>
+          </form>
+        </div>
+         <!-- Nav bar end-->
+      </div>
+    </div>
+    <!-- Main content -->
+    <div id="main">
+      
+      <div class="jumbotron">
+        <div class="container">
+          <h1>UClicker</h1>
+          <p style>Learning Today . . . Leading Tomorrow!</p>
+          <p style>Welcome back <%=loggedUser.fname %></p>
+          <p style><a class="btn btn-primary" href="/profile">Go to Dashboard &raquo;</a>
+          </p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Main content end -->
+    </div> 
+    <!-- page wrapper end -->
+
+  
+
+  <!-- /container -->
+</body>
+
+</html>
